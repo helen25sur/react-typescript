@@ -4,15 +4,14 @@ import "./App.css";
 
 export default function App() {
   return (
-    <>
+    <main>
       <ul>
         <li>
-          <CourseGoal
-            title="Learn React + TS"
-            description="Learn it from the ground up"
-          />
+          <CourseGoal title="Learn React + TS">
+            <p>Learn it from the ground up</p>
+          </CourseGoal>
         </li>
       </ul>
-    </>
+    </main>
   );
 }
