@@ -1,13 +1,13 @@
 import { useState } from "react";
 
 import Header from "./components/Header";
-import CourseGoal from "./components/CourseGoal";
 
 import "./App.css";
 
 import goalsImg from './assets/goals.jpg';
+import CourseGoalList from "./components/CourseGoalList";
 
-interface CourseGoalObj {
+export interface CourseGoalObj {
   title: string;
   description: string;
   id: number;
@@ -33,15 +33,7 @@ export default function App() {
         <h1>Your Course Goals</h1>
       </Header>
       <button onClick={handleAddGoal}>Add Goal</button>
-      <ul>
-        {goals.map((goal) => (
-          <li key={goal.id}>
-            <CourseGoal title={goal.title}>
-              <p>{goal.description}</p>
-            </CourseGoal>
-          </li>
-        ))}
-      </ul>
+      <CourseGoalList data={goals} />
     </main>
   );
 }
