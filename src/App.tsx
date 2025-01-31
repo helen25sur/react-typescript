@@ -6,6 +6,7 @@ import "./App.css";
 
 import goalsImg from './assets/goals.jpg';
 import CourseGoalList from "./components/CourseGoalList";
+import NewGoal from "./components/NewGoal";
 
 export interface CourseGoalObj {
   title: string;
@@ -16,11 +17,11 @@ export interface CourseGoalObj {
 export default function App() {
   const [goals, setGoals] = useState<CourseGoalObj[]>([]);
 
-  function handleAddGoal() {
+  function handleAddGoal(goal: string, summary: string) {
     setGoals((prevGoals) => {
       const newGoal: CourseGoalObj = {
-        title: 'Learn React + TS',
-        description: 'Learn it in depth!',
+        title: goal,
+        description: summary,
         id: Math.random(),
       }
       return [...prevGoals, newGoal]
@@ -36,7 +37,7 @@ export default function App() {
       <Header image={{ src: goalsImg, alt: 'A list of goals' }}>
         <h1>Your Course Goals</h1>
       </Header>
-      <button onClick={handleAddGoal}>Add Goal</button>
+      <NewGoal onAddGoal={handleAddGoal} />
       <CourseGoalList data={goals} onDeleteGoal={handleDeleteGoal} />
     </main>
   );
