@@ -58,8 +58,13 @@ calculate(3, 7, add);
 
 // Interface for objects
 interface Credentials {
-  password: string | undefined;
-  email: string | undefined;
+  password: string;
+  email: string;
+}
+
+// declaration merging
+interface Credentials {
+  role: string;
 }
 
 let creds: Credentials;
@@ -67,18 +72,27 @@ let creds: Credentials;
 creds = {
   password: "fhfhfh",
   email: "test@test.com",
+  role: "editor",
 };
 
 class AuthCredentials implements Credentials {
-  email: string | undefined;
-  password: string | undefined;
-  userName: string | undefined;
+  email: string;
+  password: string;
+  role: string;
+  userName: string;
+
+  constructor(credentials: Credentials, userName: string) {
+    this.email = credentials.email;
+    this.password = credentials.password;
+    this.role = credentials.role;
+    this.userName = userName;
+  }
 }
 
 function login(credentials: Credentials) {}
 
 // login(creds)
-login(new AuthCredentials());
+login(new AuthCredentials(creds, "helen"));
 
 // Merging types
 // with Types
