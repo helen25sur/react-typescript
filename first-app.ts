@@ -58,8 +58,8 @@ calculate(3, 7, add);
 
 // Interface for objects
 interface Credentials {
-  password: string;
-  email: string;
+  password: string | undefined;
+  email: string | undefined;
 }
 
 let creds: Credentials;
@@ -70,9 +70,9 @@ creds = {
 };
 
 class AuthCredentials implements Credentials {
-  email: string;
-  password: string;
-  userName: string;
+  email: string | undefined;
+  password: string | undefined;
+  userName: string | undefined;
 }
 
 function login(credentials: Credentials) {}
@@ -170,5 +170,5 @@ function merge<T, U>(a: T, b: U) {
 
 const newUser = merge<{ name: string }, { age: number }>(
   { name: "Olena" },
-  { age: 29 }
+  { age: 29 },
 );
