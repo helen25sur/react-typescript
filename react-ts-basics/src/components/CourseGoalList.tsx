@@ -7,7 +7,6 @@ type CourseGoalListProps = {
 };
 
 export default function CourseGoalList({ goals, onDeleteGoal }: CourseGoalListProps) {
-  console.log(goals);
   return (
     <ul>
       {goals && goals.map((goal) => (

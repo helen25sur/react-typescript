@@ -4,6 +4,7 @@ import Header from "./components/Header.tsx";
 import CourseGoalList from "./components/CourseGoalList.tsx";
 
 import imgGoals from './assets/goals.jpg';
+import NewGoalForm from "./components/NewGoalForm.tsx";
 
 export type Goal = {
   id: number;
@@ -14,11 +15,11 @@ export type Goal = {
 export default function App() {
   const [goals, setGoals] = useState<Goal[]>([]);
 
-  function handleAddGoal() {
+  function handleAddGoal(title: string, description: string) {
     const newGoal: Goal = {
       id: Math.random(),
-      title: 'Add Typescript into project',
-      description: 'Rewrite Tic-Tac-Toe Game together with Typescript'
+      title,
+      description
     };
 
     setGoals(prev => {
@@ -37,7 +38,7 @@ export default function App() {
       <Header image={{ src: imgGoals, alt: "A list of goals" }}>
         <h1>Your Course Goals</h1>
       </Header>
-      <button onClick={handleAddGoal}>Add New Goal</button>
+      <NewGoalForm onAddGoal={handleAddGoal} />
       <CourseGoalList goals={goals} onDeleteGoal={handleDeleteGoal} />
     </main>
   );
