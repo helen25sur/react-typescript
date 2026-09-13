@@ -2,9 +2,9 @@ import { useState } from "react";
 
 import Header from "./components/Header.tsx";
 import CourseGoalList from "./components/CourseGoalList.tsx";
+import NewGoalForm from "./components/NewGoalForm.tsx";
 
 import imgGoals from './assets/goals.jpg';
-import NewGoalForm from "./components/NewGoalForm.tsx";
 
 export type Goal = {
   id: number;
