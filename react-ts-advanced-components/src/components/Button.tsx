@@ -13,9 +13,9 @@ function isAnchorProps(props: ButtonLinkProps): props is LinkProps {
 
 export default function Button(props: ButtonLinkProps) {
   if (isAnchorProps(props)) {
-    return <a {...props}></a>;
+    return <a {...props}>Link</a>;
   }
 
-  return <button {...props}></button>;
+  return <button {...props}>Button</button>;
 
 }
